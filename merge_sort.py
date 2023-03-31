@@ -1,8 +1,9 @@
 import numpy as np
 import pytest
-import math  
+import math
+import time  
+import random
 
-A = [7, 4, 6, 10, 2, 5, 3, 13, 7, 9, 10, 50, 2, 3, 6 ,1, 2,3,7,5,8,0,2,2,2,2,5,5,7,8,9,10]
 
 def merge_sort(A):
     size = len(A)
@@ -38,5 +39,19 @@ def merge(left, right):
         j = j + 1
     return B
 
-B = merge_sort(A)
-print(B)
+
+
+for n in [10, 100, 1000, 10000]:
+    A = random.sample(range(1,10*n), n)
+    print("=================")
+    # print("Before sorting")
+    # print(A)
+    start = time.time()
+    sortedA = merge_sort(A)
+    end = time.time()
+    elapsed_time = end - start
+    print("After sorting")
+    print(sortedA)
+    print(f"n = {n}, elapsed_time = {elapsed_time}")
+
+

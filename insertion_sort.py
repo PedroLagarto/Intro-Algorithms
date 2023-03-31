@@ -1,7 +1,7 @@
 import numpy as np
-import pytest
+import random
+import time
 
-A = [7, 4, 6, 10, 2, 5, 3, 13, 7, 9]
 
 
 def insertion_sort(A):
@@ -14,6 +14,19 @@ def insertion_sort(A):
         A[i+1] = key
     return A
 
-print (insertion_sort(A))
+for n in [10, 100, 1000, 10000]:
+    A = random.sample(range(1,n+1), n)
+    print("=================")
+    # print("Before sorting")
+    # print(A)
+    start = time.time()
+    sortedA = insertion_sort(A)
+    end = time.time()
+    elapsed_time = end - start
+    # print("After sorting")
+    # print(sortedA)
+    print(f"n = {n}, elapsed_time = {elapsed_time}")
+
+
 
 
